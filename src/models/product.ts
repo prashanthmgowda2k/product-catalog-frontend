@@ -21,3 +21,8 @@ export interface PageResponse<T> {
   last: boolean;
   empty: boolean;
 }
+
+interface Props {
+  product: Product;
+  onAddToCart: (product: Product) => void;
+}

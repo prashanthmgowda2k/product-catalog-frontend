@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAllProducts } from "../api/productApi";
 import { Product } from "../models/product";
 
+
 interface ProductState {
   items: Product[];
   loading: boolean;
@@ -16,8 +17,13 @@ const initialState: ProductState = {
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
-    const response = await getAllProducts();
+  async (params?: {
+    name?: string;
+    categoryId?: number;
+    page?: number;
+    size?: number;
+  }) => {
+    const response = await getAllProducts(params);
     return response.content;
   }
 );
@@ -41,5 +47,8 @@ const productSlice = createSlice({
       });
   },
 });
+
+
+
 
 export default productSlice.reducer;

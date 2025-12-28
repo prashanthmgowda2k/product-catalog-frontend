@@ -27,7 +27,6 @@ const ProductCard = ({ product }: Props) => {
       <CardContent>
         <Typography variant="h6">{product.name}</Typography>
         <Typography color="text.secondary">{product.brand}</Typography>
-
         <Typography sx={{ mt: 1 }}>₹ {product.price}</Typography>
 
         <Chip
@@ -40,8 +39,8 @@ const ProductCard = ({ product }: Props) => {
 
       <CardActions>
         <Button
-          size="small"
           variant="contained"
+          fullWidth
           disabled={product.quantity === 0}
           onClick={handleAddToCart}
         >
